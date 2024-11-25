@@ -1,7 +1,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Personal Info</title>
+    <title>My Personal Info</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -27,9 +27,19 @@
             width: 120px;
             height: 120px;
             border-radius: 50%;
-            object-fit: cover;
             margin: 0 auto;
             border: 3px solid #4f93e6;
+            object-fit: cover;
+            object-position: center;
+            position: relative;
+            -webkit-mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 100%);
+            mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 100%);
+            -webkit-mask-size: 100% 100%;
+            mask-size: 100% 100%;
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+            -webkit-mask-position: center;
+            mask-position: center;
         }
         .card h1 {
             font-size: 24px;
@@ -61,16 +71,36 @@
             margin-top: 10px;
         }
     </style>
+    <script>
+        // Variable to control auto-download
+        const autoDownloadVcf = true;
+
+        // Function to trigger the download
+        function downloadVcf() {
+            if (autoDownloadVcf) {
+                const link = document.createElement('a');
+                link.href = 'HossamHassan.vcf';
+                link.download = 'HossamHassan.vcf';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }
+        }
+
+        // Trigger the download on page load
+        window.onload = downloadVcf;
+    </script>
 </head>
 <body>
     <div class="card">
         <img src="profile.jpg" alt="Profile Picture" class="profile-pic">
-        <h1>John Doe</h1>
-        <p>Phone: +123456789</p>
-        <p>Email: <a href="mailto:john.doe@example.com">john.doe@example.com</a></p>
+        <h1>Hossam Hassan</h1>
+        <p>Phone: 00971544779148</p>
+        <p>Email: <a href="mailto:hossamh422@gmail.com">hossamh422@gmail.com</a></p>
         <div class="link-section">
-            <p><a href="https://www.linkedin.com/in/johndoe" target="_blank">LinkedIn Profile</a></p>
+            <p><a href="https://www.linkedin.com/in/hossamh422/" target="_blank">LinkedIn Profile</a></p>
         </div>
-        <a href="HossamHassan.vcf" download="JohnDoe.vcf" class="button">Save to Contacts</a>
+        <a href="HossamHassan.vcf" download="HossamHassan.vcf" class="button">Save to Contacts</a>
     </div>
 </body>
+
